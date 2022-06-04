@@ -5,8 +5,18 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '/',
-  plugins: [react(), tsconfigPaths()],
+  plugins: [
+    react({
+      babel: {
+        babelrc: true,
+        parserOpts: {
+          plugins: ['decorators-legacy']
+        }
+      }
+    }),
+    tsconfigPaths()
+  ],
   build: {
-    sourcemap: true,
-  },
+    sourcemap: true
+  }
 })

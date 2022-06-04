@@ -1,21 +1,35 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "target": "ESNext",
-    "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
+    "lib": ["DOM", "DOM.Iterable", "es6", "ESNext"],
+    "removeComments": true,
     "skipLibCheck": true,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
+    "skipDefaultLibCheck": true,
     "strict": true,
+    "baseUrl": "./src",
+    "outDir": "./dist",
     "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "module": "ESNext",
     "moduleResolution": "Node",
+    "typeRoots": ["@types", "./node_modules/@types"],
+    "paths": {
+      "@/*": ["../src/*"],
+      "@P/*": ["../src/Pages/*"],
+      "@A/*": ["../src/Api/*"],
+      "@T/*": ["../src/Theme/*"],
+      "@TB/*": ["../src/Toolbox/*"]
+    },
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "noFallthroughCasesInSwitch": true,
+    "emitDecoratorMetadata": true
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src", "@types/index.d.ts", "@types/definition.d.ts"],
+  "exclude": ["node_modules", "config/*"]
 }
